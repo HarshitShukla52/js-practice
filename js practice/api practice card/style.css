@@ -1,0 +1,54 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+    background-color: #f4f4f4;
+    margin: 0;
+
+}
+
+.card{
+    background-color: antiquewhite;
+    border-radius: 16px;
+    box-shadow: 0 6px 8px rgba(red, green, blue, alpha);
+    max-width: 500px;
+    padding: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    
+}
+
+.profile{
+    width: 150px;
+    height: 150px;
+    border-radius: 60%;
+    object-fit: cover;
+
+}
+
+.name{
+    font-size: 2rem;
+    margin: 15px 0;
+}
+.streamFollower{
+    font-size: 2rem;
+    color: cadetblue;
+}
+
+.profile_view{
+    margin-top: 35px;
+    padding: 15px 25px;
+    color: crimson;
+    background-color: #FEE715;
+    border: #101820 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: dashed;
+    font-size: 3rem;
+}

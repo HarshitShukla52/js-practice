@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Harshit and Code</h1>
+    <button class="start">Start</button>
+    <button class="stop">Stop</button>
+    
+</body>
+<script>
+    const dateSay = function(str){
+        console.log(str , Date.now());
+        
+    }
+    //const intervalClear =  setInterval(dateSay, 4000 , "hello dear")    // to stop this
+    let intervalClear ;                                                 
+    //clearInterval(intervalClear)                                    //we use this
+
+
+    document.querySelector('.start').addEventListener('click' , function(){
+        intervalClear =  setInterval(dateSay, 4000 , "hello dear")
+        //or you can check with 
+        //clearInterval(intervalClear)
+        console.log('STARTED');
+    })
+
+
+    document.querySelector('.stop').addEventListener('click' , function(){
+        clearInterval(intervalClear)
+        console.log('STOPPED');
+    })
+   
+ 
+</script>
+</html>

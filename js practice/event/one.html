@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://media.istockphoto.com/id/607280514/photo/lupins-of-lake-tekapo.jpg?s=2048x2048&w=is&k=20&c=jRNKi-ETko7avTUFKd9UeF71a-tU51y0Wvr_fCtKOaA=" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://media.istockphoto.com/id/876560704/photo/fuji-japan-in-spring.jpg?s=2048x2048&w=is&k=20&c=GDyWq0cjkwyRc07Gf5MBUzJzlgKnDQLXRCPP3kKeLig=" alt=""></li>
+            <li><img width="200px" id="river" src="https://media.istockphoto.com/id/1337232523/photo/high-angle-view-of-a-lake-and-forest.jpg?s=2048x2048&w=is&k=20&c=HUkCp1sJPh7ymFrdJD3iTuSr_Aas-TEnphd5cdhs58M=" alt=""></li>
+            <li><img width="200px" id="owl"   src="https://media.istockphoto.com/id/481526876/photo/boreal-owl-in-autumn-leaves.jpg?s=2048x2048&w=is&k=20&c=lpb73I-IaL5D3CVQnam-lz3SmQysEZcB6tdn7WkSA04=" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://media.istockphoto.com/id/539105384/photo/kedarnath-in-india.jpg?s=2048x2048&w=is&k=20&c=13ww9zknEYW4JIdg-i7znM0metLIlnNt31QpgJnSTtg=" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+
+    // document.getElementById('owl').onclick = function(){
+    //     alert('owl is here clicked')
+    // }
+    
+    //atachEvent
+    //jQuery - On
+ 
+    // some events are : types timestamp, defautPrevented
+    //target, toElement , srcElement , currentTarget,
+    //clientX, clientY , screenX, screenY
+    //altkey, ctrlkey , shiftkey, keycode
+    
+    
+
+    // event propagation have two conttext first is event capturing(true) and second is event bubbling like eg.., default value (ye niche se upper track karta h)
+    //next code is event propadation code,,,,,,, try by true and false value
+
+     document.getElementById('images').addEventListener('click', function(e){
+    //    // alert("owl is clicked again")
+    //   // console.log("clicked inside the ul");
+       
+     }, false)     //hare false is default value
+
+     document.getElementById('owl').addEventListener('click', function(e){
+       
+    //    //console.log("you clicked image of owl");
+    //    //e.stopPropagation()  //stop the bubbling event
+       
+     }, false)     
+
+     document.getElementById('google').addEventListener('click' , function (e){
+       
+    // //    console.log("google is clicked");
+          e.preventDefault()
+        //e.stopPropagation()
+
+     }, false)
+
+    //disapper of images
+
+    document.querySelector("#images").addEventListener('click', function (e){
+        console.log(e.target.tagName);
+
+        if (e.target.tagName === 'IMG') {   //we add this because when we clicked on google all img are disapper to prevent this we use if condition
+            console.log(e.target.id);
+            
+            
+        }
+        let removeImg = e.target.parentNode
+        removeImg.remove()
+        //removeImg.parentNode.removeChild(removeImg)  //same as above
+        
+    })
+
+
+
+
+    
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const reqestUrl = 'https://api.github.com/users/HarshitShukla52'
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET' , reqestUrl)
+        xhr.onreadystatechange = function () {
+            console.log(xhr.readyState);
+            if (xhr.readyState === 4) {
+                //console.log(this.responseText); // it shows api data of my github account
+                // const showData = this.responseText   // it is in object 
+                // console.log(typeof showData);
+                // console.log(showData.follower); //it show undefined....,,, because here data are placed in object and api data are in string ,,, we have to convert object into string
+                
+                // convert string into object using JSON
+                
+                const showData = JSON.parse(this.responseText)
+                console.log(typeof showData);
+                console.log(showData);
+                console.log(showData.follower);  // it again shows undefined because my foolwer is 0
+                console.log(showData.login);
+            }
+        }
+       
+        xhr.send()
+        
+    </script>
+    
+</body>
+</html>
+
+
+<!--//always in most of the cases url response come in a form of string ,,,,,,in some case it is object but most of in string only//-->

@@ -140,7 +140,7 @@ function displayWeather(data) {
         const dailyForcast = data.list.filter((item , index) => index % 8 === 0);
 
         dailyForcast.forEach((forcast) => {
-            const date = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+            const date = new Date(forcast.dt_txt).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
             const condition = forcast.weather[0].main.toLowerCase()
             const temperature = forcast.main.temp
             let iconSrc = 'icons/default.png';

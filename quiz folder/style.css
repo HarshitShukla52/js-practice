@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins' , sans-serif;
+    box-sizing: border-box;
+    color: antiquewhite;
+    font-weight: 600;
+}
+
+body{
+    background: url('image1.jpg');
+    width: 100%;
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    background: rgb(0, 0, 0, 0.16);
+    backdrop-filter : blur(3px);
+
+}
+/*container of the quiz*/
+.quiz_container{
+    width: 90%;
+    max-width: 1200px;
+    /*height: 650px;*/
+    z-index: 1;
+    background: linear-gradient(to top, rgb(0,0,0,0.16), rgb(255 , 255 , 255 , 0.17));
+    margin: 100px auto 0;
+    border-radius: 20px;
+    backdrop-filter: blur(0px);
+    padding: 20px;
+    overflow: hidden;
+}
+
+.quiz_container h1{
+    font-size: 40px;
+    color: #FFFFFF;
+    font-weight: 600px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+}
+.quiz{
+    padding: 20px 0;
+}
+.quiz h2{
+    font-size: 30px;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+/*.btn{
+    color: #222;
+    font-weight: 550;
+    width: 100%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 6px;
+    cursor: pointer;
+}*/
+
+.btn {
+    color: #fff; /* Button text color */
+    font-size: 20px;
+    font-weight: 550;
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #fff; /* Border for visibility */
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+    backdrop-filter: blur(2px); /* Optional: subtle blur effect */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    word-wrap: break-word; /*ensure text wrap*/
+    overflow-wrap:break-word;  /*prevent overflow*/
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly less transparent on hover */
+    transform: scale(1.02); /* Slight zoom effect */
+}
+
+#next_btn{
+    background: #C72B32;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+}
+
+/*.correct {
+    background-color: green;
+    color: white;
+}
+
+.wrong {
+    background-color: red;
+    color: white;
+}*/
+
+/*.correct {
+    background: linear-gradient(90deg, #00ff85, #00c09d); /* Gradient for correct */
+    /*color: white;
+    box-shadow: 0px 4px 15px rgba(0, 255, 133, 0.6); /* Glow effect */
+   /* transform: scale(1.05); /* Slightly enlarge for emphasis */
+    /*transition: all 0.3s ease-in-out;
+}
+
+.wrong {
+    background: linear-gradient(90deg, #ff4d4d, #ff0000); /* Gradient for wrong */
+    /*color: white;
+    box-shadow: 0px 4px 15px rgba(255, 77, 77, 0.6); /* Glow effect */
+    /*transform: scale(0.95); /* Slightly shrink to show it’s wrong */
+    /*transition: all 0.3s ease-in-out;
+}
+
+/* Optional hover effects 
+.correct:hover, .wrong:hover {
+    filter: brightness(1.2); /* Brighten the button when hovered 
+    transform: scale(1.1); /* Slight zoom effect 
+} 
+
+/*.correct {
+    animation: pulse 1s infinite; /* Pulse animation 
+}
+
+/*@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0px 4px 15px rgba(0, 255, 133, 0.6);
+        transform: scale(1.05);
+    }
+    50% {
+        box-shadow: 0px 6px 20px rgba(0, 255, 133, 0.8);
+        transform: scale(1.1);
+    }
+}*/
+
+.correct {
+    background: linear-gradient(45deg, #3DDC84, #0CAF50); /* Vibrant green gradient */
+    color: #ffffff; /* White text for contrast */
+    box-shadow: 0 4px 15px rgba(61, 220, 132, 0.6), inset 0 -3px 6px rgba(0, 0, 0, 0.2); /* Glow and inner shadow */
+    border: 2px solid #00ff85; /* Subtle border */
+    transform: scale(0.95); /* Slight enlarge effect */
+    transition: all 0.3s ease-in-out; /* Smooth transitions */
+    position: relative; /* For decorative effects */
+    overflow: hidden; /* Clip pseudo-element */
+}
+
+.correct::after {
+    content: ""; /* Add a decorative highlight */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Highlight overlay */
+    mix-blend-mode: overlay; /* Create shiny effect */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+}
+
+.correct:hover::after {
+    transform: scaleX(1); /* Highlight expands on hover */
+}
+
+.wrong {
+    background: linear-gradient(45deg, #FF5E57, #E53935); /* Vibrant red gradient */
+    color: #ffffff; /* White text for contrast */
+    box-shadow: 0 4px 15px rgba(255, 94, 87, 0.6), inset 0 -3px 6px rgba(0, 0, 0, 0.2); /* Glow and inner shadow */
+    border: 2px solid #FF4E4E; /* Subtle border */
+    transform: scale(0.95); /* Slight shrink effect */
+    transition: all 0.3s ease-in-out; /* Smooth transitions */
+    position: relative; /* For decorative effects */
+    overflow: hidden; /* Clip pseudo-element */
+}
+
+.wrong::after {
+    content: ""; /* Add a decorative highlight */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Highlight overlay */
+    mix-blend-mode: overlay; /* Create shiny effect */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+}
+
+.wrong:hover::after {
+    transform: scaleX(1); /* Highlight expands on hover */
+}
+
+
+
